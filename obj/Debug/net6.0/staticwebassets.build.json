@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zyomkan76h3+fGyetRSesl6XxAxRj+Kwgniq/54G0Nc=",
+  "Source": "httpbin",
+  "BasePath": "_content/httpbin",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
