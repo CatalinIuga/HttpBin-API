@@ -1,17 +1,22 @@
 # HTTPBIN
 
-or BucketHead! or HTTP Head
+Test you HTTP calls with this API. It captures request and replays the details back to you.
 
-## Flow for the app:
+## Bulding and running
 
-- user connection -> session gets initialized or extended
-- create a session with the bucket
-- return the bucket and session back to user
-- use server sent events to replay any new requests
+You need to have a PostgreSQL database running. Modify the connection string inside appsettings.json to match your database.
 
-## TODO
+```bash
+# Install dependencies
+dotnet restore
 
-- [x] update bucket time
-- [x] service that expires buckets and deletes them from database
-- [] add unit tests
-- [] frontend -> button -> set session with a bucket id as claim
+# Run migrations
+dotnet ef database update
+
+# Run the application
+dotnet run
+```
+
+## Usage
+
+TODO
