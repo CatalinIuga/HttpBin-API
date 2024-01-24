@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using HttpBin.Models;
-using Swashbuckle.AspNetCore.Annotations;
-using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 using System.Text;
+using HttpBin.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace HttpBin.Controllers
 {
@@ -22,14 +22,6 @@ namespace HttpBin.Controllers
         public BucketController(HttpBinDbContext dbContext)
         {
             _context = dbContext;
-        }
-
-        [HttpGet]
-        [Route("/all")]
-        public async Task<ActionResult<Bucket>> GetBuckets()
-        {
-            var buckets = await _context.Buckets.ToListAsync();
-            return Ok(buckets);
         }
 
         [HttpPost]

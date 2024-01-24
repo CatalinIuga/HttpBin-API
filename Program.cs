@@ -7,9 +7,12 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<HttpBinDbContext>(
-    options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"))
-);
+builder
+    .Services
+    .AddDbContext<HttpBinDbContext>(
+        options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"))
+    );
 builder.Services.AddHostedService<BucketExpirationBackgroundService>(); // deletes expired buckets
 
 builder.Services.AddControllers();
@@ -30,16 +33,18 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
 
-builder.Services.AddCors(
-    options =>
-        options.AddDefaultPolicy(policy =>
-        {
-            policy.WithOrigins("http://localhost:5173");
-            policy.AllowCredentials();
-            policy.AllowAnyHeader();
-            policy.AllowAnyMethod();
-        })
-);
+builder
+    .Services
+    .AddCors(
+        options =>
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:5173");
+                policy.AllowCredentials();
+                policy.AllowAnyHeader();
+                policy.AllowAnyMethod();
+            })
+    );
 
 var app = builder.Build();
 
